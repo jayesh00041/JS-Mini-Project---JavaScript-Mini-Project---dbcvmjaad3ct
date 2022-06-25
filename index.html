@@ -34,13 +34,14 @@
         }
 
         .login-form,
-        .signup-form, .pin-page {
+        .signup-form,
+        .pin-page {
             width: 100%;
             padding: 1em;
         }
 
-        .login-form ,
-        .signup-form{
+        .login-form,
+        .signup-form {
             display: none;
         }
 
@@ -59,7 +60,7 @@
             margin-top: 50px;
         }
 
-        span#login-error {
+        span#login-error, .error-msg {
             color: red;
         }
 
@@ -84,7 +85,7 @@
             justify-content: center;
         }
 
-        .pin-page{
+        .pin-page {
             text-align: center;
         }
 
@@ -101,6 +102,29 @@
             -webkit-appearance: none;
             margin: 0;
         }
+
+        .error {
+            animation: shake 0.2s ease-in-out 0s 2;
+            box-shadow: 0 0 0.5em red;
+        }
+
+        @keyframes shake {
+            0% {
+                margin-left: 0rem;
+            }
+
+            25% {
+                margin-left: 0.5rem;
+            }
+
+            75% {
+                margin-left: -0.5rem;
+            }
+
+            100% {
+                margin-left: 0rem;
+            }
+        }
     </style>
 </head>
 
@@ -113,18 +137,19 @@
                 <input type="text" id="login-mail" class="form-control" placeholder="Email">
                 <input type="password" id="password" class="form-control" placeholder="Password">
                 <span id="login-error"></span>
-                <button type="button" class="btn btn-outline-secondary">Login</button>
+                <button type="button" id="login-btn" class="btn btn-outline-secondary">Login</button>
                 <span id="Forget-Password">Forget Password</span>
             </div>
 
             <!-- signup code  -->
             <div class="signup-form">
+                <span id="signup-error" class="error-msg"></span>
                 <input type="text" id="name" class="form-control" placeholder="Name">
                 <input type="Email" id="email" class="form-control" placeholder="Email">
                 <input type="tel" id="phone" class="form-control" placeholder="Phone">
                 <input type="password" id="set-password" class="form-control" placeholder="Password">
-                <span id="login-error"></span>
-                <button type="button" class="btn btn-outline-secondary">Signup</button>
+
+                <button type="button" id="signup-btn" class="btn btn-outline-secondary">Signup</button>
             </div>
 
             <!-- pin page -->
@@ -143,12 +168,15 @@
         </div>
 
         <div class="toggle-btns d-flex">
-            <div class="login active">LOGIN</div>
+            <div class="login">LOGIN</div>
             <div class="signup">SIGNUP</div>
         </div>
     </div>
 
     <script>
+
+        // pin input code for login
+
         function getCodeBoxElement(index) {
             return document.getElementById('codeBox' + index);
         }
@@ -168,6 +196,7 @@
                 getCodeBoxElement(index - 1).focus();
             }
         }
+
         function onFocusEvent(index) {
             for (item = 1; item < index; item++) {
                 const currentElement = getCodeBoxElement(item);
@@ -176,6 +205,83 @@
                     break;
                 }
             }
+        }
+
+
+        // toggle login and sign up
+
+        const login_signup = document.querySelectorAll('.toggle-btns > div');
+        login_signup[0].addEventListener('click', displayLogin);
+        login_signup[1].addEventListener('click', displaySignup);
+
+        function displayLogin() {
+            qs('.toggle-btns .login').classList.add('active');
+            qs('.toggle-btns .signup').classList.remove('active');
+            qs('.signup-form').style.display = 'none';
+            qs('.pin-page').style.display = 'none';
+            qs('.login-form').style.display = 'block';
+        }
+
+        function displaySignup() {
+            qs('.toggle-btns .signup').classList.add('active');
+            qs('.toggle-btns .login').classList.remove('active');
+            qs('.signup-form').style.display = 'block';
+            qs('.pin-page').style.display = 'none';
+            qs('.login-form').style.display = 'none';
+        }
+
+
+        // signup btn functionality
+
+        qs('#signup-btn').addEventListener('click', signup);
+
+        function signup() {
+            let name = qs('#name').value;
+            let email = qs('#email').value;
+            let phone = qs('#phone').value;
+            let password = qs('#set-password').value;
+            let error;
+
+            if (name == '' || name == null) {
+                shakeError('#name', 'Enter your name.');
+                return;
+            }
+
+            const validRegexForEmail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+            if (!email.match(validRegexForEmail)) {
+                shakeError('#email', 'Enter a valid email address');
+                return;
+            }
+
+            const validRegexForPhone = /^\d{10}$/;
+            if (!validRegexForPhone.test(phone)) {
+                shakeError('#phone', 'Enter a valid phone number');
+                return;
+            }
+
+            const validRegexForPassword = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+            if (!validRegexForPassword.test(password)) {
+                shakeError('#set-password', 'Enter a password with minimum 8 characters, number and !@#$%^&*');
+                return;
+            }
+
+        }
+
+
+
+
+
+        function shakeError(element, errorMsg) {
+            qs(element).focus();
+            qs(element).classList.add('error');
+            setTimeout(() => {
+                qs(element).classList.remove('error');
+            }, 2000)
+            qs('#signup-error').innerHTML = errorMsg;
+        }
+
+        function qs(query) {
+            return document.querySelector(query);
         }
     </script>
 </body>
