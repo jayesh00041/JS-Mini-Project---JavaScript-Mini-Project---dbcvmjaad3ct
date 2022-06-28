@@ -6,138 +6,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="images/Wallet-icon.png">
-    <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
     <title>Finance Managment</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,400;0,500;0,600;0,700;1,100;1,400;1,500;1,600;1,700&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-        * {
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        .container {
-            max-width: 400px;
-            background: url(images/login-background.png);
-            height: 100vh;
-            overflow: scroll;
-            background-size: cover;
-        }
-
-        .login-page {
-            height: 95%;
-        }
-
-        .login-form,
-        .signup-form,
-        .pin-page {
-            width: 100%;
-            padding: 1em;
-        }
-
-        .login-form,
-        .signup-form {
-            display: none;
-        }
-
-        .login-form input,
-        .signup-form input {
-            margin-bottom: 20px;
-            background: rgba(200, 200, 200, 0.5);
-            border: none;
-            box-shadow: 5px 5px 10px rgb(0 0 0 / 5%);
-            font-size: 1.10rem;
-        }
-
-        .login-form button,
-        .signup-form button {
-            width: 100%;
-            margin-top: 50px;
-        }
-
-        span#login-error, .error-msg {
-            color: red;
-        }
-
-
-        .toggle-btns {
-            height: 5%;
-        }
-
-        .active {
-            background-color: white !important;
-            color: #004852 !important;
-            border-bottom: 1px solid !important;
-        }
-
-        .login,
-        .signup {
-            width: 50%;
-            background-color: #004852;
-            color: white;
-            align-items: center;
-            display: flex;
-            justify-content: center;
-        }
-
-        .pin-page {
-            text-align: center;
-        }
-
-        input[type=number] {
-            height: 45px;
-            width: 45px;
-            font-size: 25px;
-            text-align: center;
-            border: 1px solid #0000003f;
-        }
-
-        input[type=number]::-webkit-inner-spin-button,
-        input[type=number]::-webkit-outer-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
-        }
-
-        .error {
-            animation: shake 0.2s ease-in-out 0s 2;
-            box-shadow: 0 0 0.5em red;
-        }
-
-        @keyframes shake {
-            0% {
-                margin-left: 0rem;
-            }
-
-            25% {
-                margin-left: 0.5rem;
-            }
-
-            75% {
-                margin-left: -0.5rem;
-            }
-
-            100% {
-                margin-left: 0rem;
-            }
-        }
-    </style>
+    
 </head>
 
 <body>
-    <div class="container">
-        <div class="login-page d-flex align-items-center">
+    <div class="container mobile-look">
+        <div class="login-page d-flex align-items-center justify-content-center">
 
             <!-- login code -->
             <div class="login-form">
+                <span id="login-error" class="error-msg"></span>
                 <input type="text" id="login-mail" class="form-control" placeholder="Email">
                 <input type="password" id="password" class="form-control" placeholder="Password">
-                <span id="login-error"></span>
+
                 <button type="button" id="login-btn" class="btn btn-outline-secondary">Login</button>
+                <br />
                 <span id="Forget-Password">Forget Password</span>
             </div>
 
@@ -154,17 +50,44 @@
 
             <!-- pin page -->
             <div class="pin-page">
-                <form>
-                    <input id="codeBox1" type="number" maxlength="1" onkeyup="onKeyUpEvent(1, event)"
-                        onfocus="onFocusEvent(1)" />
-                    <input id="codeBox2" type="number" maxlength="1" onkeyup="onKeyUpEvent(2, event)"
-                        onfocus="onFocusEvent(2)" />
-                    <input id="codeBox3" type="number" maxlength="1" onkeyup="onKeyUpEvent(3, event)"
-                        onfocus="onFocusEvent(3)" />
-                    <input id="codeBox4" type="number" maxlength="1" onkeyup="onKeyUpEvent(4, event)"
-                        onfocus="onFocusEvent(4)" />
-                </form>
+                <input id="pin1" class="pin-input" type="password" maxlength="1" onkeyup="checkLogin(1, event)"
+                    onfocus="onFocusEvent('#pin', 1)">
+                <input id="pin2" class="pin-input" type="password" maxlength="1" onkeyup="checkLogin(2, event)"
+                    onfocus="onFocusEvent('#pin', 2)">
+                <input id="pin3" class="pin-input" type="password" maxlength="1" onkeyup="checkLogin(3, event)"
+                    onfocus="onFocusEvent('#pin', 3)">
+                <input id="pin4" class="pin-input" type="password" maxlength="1" onkeyup="checkLogin(4, event)"
+                    onfocus="onFocusEvent('#pin', 4)">
+                <span id="pin-login-error" class="error"></span>
             </div>
+
+            <!-- set pin page -->
+            <div class="set-pin-page">
+                <h5>Set PIN</h5>
+
+                <input id="newPin1" class="pin-input" type="password" maxlength="1" onkeyup="newPinEvent(1, event)"
+                    onfocus="onFocusEvent('#newPin', 1)">
+                <input id="newPin2" class="pin-input" type="password" maxlength="1" onkeyup="newPinEvent(2, event)"
+                    onfocus="onFocusEvent('#newPin', 2)">
+                <input id="newPin3" class="pin-input" type="password" maxlength="1" onkeyup="newPinEvent(3, event)"
+                    onfocus="onFocusEvent('#newPin', 3)">
+                <input id="newPin4" class="pin-input" type="password" maxlength="1" onkeyup="newPinEvent(4, event)"
+                    onfocus="onFocusEvent('#newPin', 4)">
+
+                <br />
+                <h5>Confirm PIN</h5>
+                <input id="confirmPin1" class="pin-input" type="password" maxlength="1" onkeyup="confirmPinEvent(1,
+                    event)" onfocus="onFocusEvent('#confirmPin', 1)">
+                <input id="confirmPin2" class="pin-input" type="password" maxlength="1" onkeyup="confirmPinEvent(2,
+                    event)" onfocus="onFocusEvent('#confirmPin', 2)">
+                <input id="confirmPin3" class="pin-input" type="password" maxlength="1" onkeyup="confirmPinEvent(3,
+                    event)" onfocus="onFocusEvent('#confirmPin', 3)">
+                <input id="confirmPin4" class="pin-input" type="password" maxlength="1" onkeyup="confirmPinEvent(4,
+                    event)" onfocus="onFocusEvent('#confirmPin', 4)">
+                <br />
+                <span id="set-pin-error" class="error"></span>
+            </div>
+
         </div>
 
         <div class="toggle-btns d-flex">
@@ -173,117 +96,12 @@
         </div>
     </div>
 
+
+
+    <script src="App.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+
     <script>
+</body >
 
-        // pin input code for login
-
-        function getCodeBoxElement(index) {
-            return document.getElementById('codeBox' + index);
-        }
-        getCodeBoxElement(1).focus();
-        function onKeyUpEvent(index, event) {
-            const eventCode = event.which || event.keyCode;
-            if (getCodeBoxElement(index).value.length === 1) {
-                if (index !== 4) {
-                    getCodeBoxElement(index + 1).focus();
-                } else {
-                    getCodeBoxElement(index).blur();
-                    // Submit code
-                    console.log('submit code ');
-                }
-            }
-            if (eventCode === 8 && index !== 1) {
-                getCodeBoxElement(index - 1).focus();
-            }
-        }
-
-        function onFocusEvent(index) {
-            for (item = 1; item < index; item++) {
-                const currentElement = getCodeBoxElement(item);
-                if (!currentElement.value) {
-                    currentElement.focus();
-                    break;
-                }
-            }
-        }
-
-
-        // toggle login and sign up
-
-        const login_signup = document.querySelectorAll('.toggle-btns > div');
-        login_signup[0].addEventListener('click', displayLogin);
-        login_signup[1].addEventListener('click', displaySignup);
-
-        function displayLogin() {
-            qs('.toggle-btns .login').classList.add('active');
-            qs('.toggle-btns .signup').classList.remove('active');
-            qs('.signup-form').style.display = 'none';
-            qs('.pin-page').style.display = 'none';
-            qs('.login-form').style.display = 'block';
-        }
-
-        function displaySignup() {
-            qs('.toggle-btns .signup').classList.add('active');
-            qs('.toggle-btns .login').classList.remove('active');
-            qs('.signup-form').style.display = 'block';
-            qs('.pin-page').style.display = 'none';
-            qs('.login-form').style.display = 'none';
-        }
-
-
-        // signup btn functionality
-
-        qs('#signup-btn').addEventListener('click', signup);
-
-        function signup() {
-            let name = qs('#name').value;
-            let email = qs('#email').value;
-            let phone = qs('#phone').value;
-            let password = qs('#set-password').value;
-            let error;
-
-            if (name == '' || name == null) {
-                shakeError('#name', 'Enter your name.');
-                return;
-            }
-
-            const validRegexForEmail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-            if (!email.match(validRegexForEmail)) {
-                shakeError('#email', 'Enter a valid email address');
-                return;
-            }
-
-            const validRegexForPhone = /^\d{10}$/;
-            if (!validRegexForPhone.test(phone)) {
-                shakeError('#phone', 'Enter a valid phone number');
-                return;
-            }
-
-            const validRegexForPassword = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
-            if (!validRegexForPassword.test(password)) {
-                shakeError('#set-password', 'Enter a password with minimum 8 characters, number and !@#$%^&*');
-                return;
-            }
-
-        }
-
-
-
-
-
-        function shakeError(element, errorMsg) {
-            qs(element).focus();
-            qs(element).classList.add('error');
-            setTimeout(() => {
-                qs(element).classList.remove('error');
-            }, 2000)
-            qs('#signup-error').innerHTML = errorMsg;
-        }
-
-        function qs(query) {
-            return document.querySelector(query);
-        }
-    </script>
-</body>
-
-</html>
+</html >
