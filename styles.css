@@ -9,34 +9,34 @@
     max-width: 400px !important;
     background: url(images/login-background.png);
     height: 100vh;
-    background-size: cover;
+    background-size: cover !important;
     overflow-y: scroll;
     border: 1px solid grey;
     border-radius: 10px;
     scroll-behavior: smooth;
-    
+
 }
 
 ::-webkit-scrollbar {
     width: 5px;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px grey; 
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
     border-radius: 10px;
-  }
-   
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: grey; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: grey;
     border-radius: 2px;
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: darkgrey; 
-  }
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: darkgrey;
+}
 
 .login-page {
     height: 95%;
@@ -137,4 +137,70 @@ span#login-error,
     100% {
         margin-left: 0rem;
     }
+}
+
+
+
+/* Dashbord page css here  */
+
+.working-area {
+    height: 90vh;
+    overflow-y: scroll;
+    
+}
+
+.working-area::-webkit-scrollbar, .transaction-types::-webkit-scrollbar {
+    display: none;
+}
+
+.icons {
+    height: 10vh;
+    text-align: center;
+    font-size: 1.25rem;
+    color: grey;
+    border-top: 1px solid lightgrey;
+}
+
+.icons .active-icon {
+    color: #004852;
+}
+
+.card {
+    background: url(images/card-background.png);
+    background-size: cover;
+    border-style: solid !important;
+    border-image:
+        linear-gradient(to bottom,
+            #004852,
+            rgba(0, 0, 0, 0)) 1 100% !important;
+}
+
+.transactions{
+    font-size: 0.75rem;
+}
+.transaction-types{
+    display: inline-flex;
+    overflow-x: scroll;
+    gap: 1rem;
+}
+.transaction-card {
+    width: 8rem;
+    height: 7rem;
+    border: 1px solid lightgrey;
+    border-radius: 0.5rem;
+    margin-top: 2rem;
+    padding: 0.5rem;
+}
+
+.transaction-card i{
+    font-size: 2rem;
+    color: #e8f54a;
+}
+
+.transaction-card h6{
+    color: #18445c;
+}
+
+.transaction-card:hover {
+    background-color: lightgrey;
 }

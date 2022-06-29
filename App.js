@@ -57,7 +57,7 @@ function confirmPinEvent(index, event) {
 
 function loginPinSubmit(loginPin) {
     if (checkPin(loginPin)) {
-        window.location.href = 'dashbord.html';
+        takeToDashbord();
     } else {
         qs('#pin-login-error').innerHTML = 'Invalid PIN';
     }
@@ -78,7 +78,7 @@ function confirmPinDone(confirmPin) {
     if (parseInt(new_pin) === parseInt(confirmPin)) {
         const user = getData('user');
         setPin.call(user, new_pin);
-        window.location.href = "dashbord.html";
+        takeToDashbord();
     } else {
         qs('#set-pin-error').innerHTML = 'PIN does not match';
     }
@@ -161,7 +161,7 @@ function login() {
         qs('.login-form').style.display = 'none';
         qs('.set-pin-page').style.display = 'block';
     } else {
-        window.location.href = "dashbord.html";
+        takeToDashbord();
     }
 }
 
@@ -234,4 +234,17 @@ function setData(query) {
 function setPin(pin) {
     this.pin = pin;
     localStorage.setItem('user', JSON.stringify(this));
+}
+
+function takeToDashbord(){
+    
+    let user = getData('user')
+    user.login = true;
+    let date = new Date();
+    console.log(date);
+    user.login_date = date.getDate();
+    console.log(user.login_date);
+    setData(user);
+
+    window.location.href = 'dashbord.html';
 }
