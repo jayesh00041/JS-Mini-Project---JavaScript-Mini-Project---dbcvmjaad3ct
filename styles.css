@@ -182,13 +182,14 @@ span#login-error,
     display: inline-flex;
     overflow-x: scroll;
     gap: 1rem;
+    width: 100%;
 }
 .transaction-card {
     width: 8rem;
     height: 7rem;
     border: 1px solid lightgrey;
     border-radius: 0.5rem;
-    margin-top: 2rem;
+   
     padding: 0.5rem;
 }
 
