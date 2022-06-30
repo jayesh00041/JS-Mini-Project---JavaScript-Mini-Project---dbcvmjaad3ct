@@ -149,7 +149,7 @@ span#login-error,
     
 }
 
-.working-area::-webkit-scrollbar, .transaction-types::-webkit-scrollbar {
+.working-area::-webkit-scrollbar, .transaction-types::-webkit-scrollbar, .mobile-look::-webkit-scrollbar {
     display: none;
 }
 
@@ -163,6 +163,13 @@ span#login-error,
 
 .icons .active-icon {
     color: #004852;
+}
+
+.card-title{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: inherit;
 }
 
 .card {
@@ -189,8 +196,6 @@ span#login-error,
     height: 7rem;
     border: 1px solid lightgrey;
     border-radius: 0.5rem;
-   
-    padding: 0.5rem;
 }
 
 .transaction-card i{
@@ -204,4 +209,13 @@ span#login-error,
 
 .transaction-card:hover {
     background-color: lightgrey;
+}
+
+.home-icon-code{
+    margin: auto;
+}
+
+.main-balance, .bank-cash-cards{
+   width: 90%;
+   margin: auto !important;
 }
