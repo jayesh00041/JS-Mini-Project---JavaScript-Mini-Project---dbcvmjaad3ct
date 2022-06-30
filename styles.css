@@ -144,7 +144,7 @@ span#login-error,
 /* Dashbord page css here  */
 
 .working-area {
-    height: 90vh;
+    height: 93vh;
     overflow-y: scroll;
     
 }
@@ -154,7 +154,7 @@ span#login-error,
 }
 
 .icons {
-    height: 10vh;
+    height: 7vh;
     text-align: center;
     font-size: 1.25rem;
     color: grey;
