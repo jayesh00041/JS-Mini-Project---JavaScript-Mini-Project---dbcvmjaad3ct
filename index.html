@@ -28,10 +28,10 @@
 
             <!-- login code -->
             <div class="login-form">
-                <span id="login-error" class="error-msg"></span>
+                
                 <input type="text" id="login-mail" class="form-control" placeholder="Email">
                 <input type="password" id="password" class="form-control" placeholder="Password">
-
+                <span id="login-error" class="error-msg"></span>
                 <button type="button" id="login-btn" class="btn btn-outline-secondary">Login</button>
                 <br />
                 <span id="Forget-Password">Forget Password</span>
@@ -39,12 +39,11 @@
 
             <!-- signup code  -->
             <div class="signup-form">
-                <span id="signup-error" class="error-msg"></span>
                 <input type="text" id="name" class="form-control" placeholder="Name">
                 <input type="Email" id="email" class="form-control" placeholder="Email">
                 <input type="tel" id="phone" class="form-control" placeholder="Phone">
                 <input type="password" id="set-password" class="form-control" placeholder="Password">
-
+                <span id="signup-error" class="error-msg"></span>    
                 <button type="button" id="signup-btn" class="btn btn-outline-secondary">Signup</button>
             </div>
 
@@ -63,7 +62,7 @@
 
             <!-- set pin page -->
             <div class="set-pin-page">
-                <h5>Set PIN</h5>
+                
 
                 <input id="newPin1" class="pin-input" type="password" maxlength="1" onkeyup="newPinEvent(1, event)"
                     onfocus="onFocusEvent('#newPin', 1)">
@@ -73,9 +72,9 @@
                     onfocus="onFocusEvent('#newPin', 3)">
                 <input id="newPin4" class="pin-input" type="password" maxlength="1" onkeyup="newPinEvent(4, event)"
                     onfocus="onFocusEvent('#newPin', 4)">
-
+                <h5>Set PIN</h5>
                 <br />
-                <h5>Confirm PIN</h5>
+                
                 <input id="confirmPin1" class="pin-input" type="password" maxlength="1" onkeyup="confirmPinEvent(1,
                     event)" onfocus="onFocusEvent('#confirmPin', 1)">
                 <input id="confirmPin2" class="pin-input" type="password" maxlength="1" onkeyup="confirmPinEvent(2,
@@ -84,6 +83,7 @@
                     event)" onfocus="onFocusEvent('#confirmPin', 3)">
                 <input id="confirmPin4" class="pin-input" type="password" maxlength="1" onkeyup="confirmPinEvent(4,
                     event)" onfocus="onFocusEvent('#confirmPin', 4)">
+                <h5>Confirm PIN</h5>
                 <br />
                 <span id="set-pin-error" class="error"></span>
             </div>
