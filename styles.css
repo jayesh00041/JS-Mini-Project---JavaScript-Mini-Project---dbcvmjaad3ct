@@ -93,6 +93,7 @@ span#login-error,
     align-items: center;
     display: flex;
     justify-content: center;
+    cursor:pointer
 }
 
 .pin-page {
