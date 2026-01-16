@@ -59,7 +59,7 @@ function loginPinSubmit(loginPin) {
     if (checkPin(loginPin)) {
         takeToDashbord();
     } else {
-        qs('#pin-login-error').innerHTML = 'Invalid PIN';
+        
     }
 }
 
